@@ -13,7 +13,6 @@ def main():
     userid = 'gregory.williams@orr.gov.uk'
     userpassword = 'ORRis1derful!'
 
-
     print("starting to get the NRE XML Data from NRE...\n")
     xml = getnrexml(userid,userpassword)
     

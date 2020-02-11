@@ -67,7 +67,9 @@ def xmltocsv(xlmstring,outputfilepath, filename,sourceitemid):
     station_data_head.append('CarparkAcccessibleSpaces')
     station_data_head.append('AcccessibleTaxiNotes')
     station_data_head.append('AccessibleCarparkEquipment')
-
+    station_data_head.append('CarparkCCTV')
+    station_data_head.append('TOCRef')
+    station_data_head.append('AccessibleCarparkEquipmentNote')
 
 
     #populate the csv with the header
@@ -248,6 +250,26 @@ def xmltocsv(xlmstring,outputfilepath, filename,sourceitemid):
             accessiblecarparkequipment = stn.Interchange.CarPark.AccessibleCarParkEquipment.get_text()
         except AttributeError:
             accessiblecarparkequipment = False
+        
+        try:
+            carparkcctv = stn.Interchange.CarPark.Cctv.get_text()
+        except AttributeError:
+            carparkcctv = False
+        
+        try:
+            tocref = stn.TrainOperatingCompanies.TocRef.get_text()
+        except AttributeError:
+            tocref = None
+
+        try:
+            accessiblecarparkequipmentnote = stn.Interchange.CarPark.AccessibleCarParkEquipmentNote.get_text()
+        except AttributeError:
+            accessiblecarparkequipmentnote = None
+
+
+
+
+
 
         #format date
         changeddate = changeddate.replace('T00:00:00.000Z','')
@@ -308,7 +330,9 @@ def xmltocsv(xlmstring,outputfilepath, filename,sourceitemid):
         station_data.append(carparkaccessablespaces)
         station_data.append(accessibletaxinotes)
         station_data.append(accessiblecarparkequipment)
-
+        station_data.append(carparkcctv)
+        station_data.append(tocref)
+        station_data.append(accessiblecarparkequipmentnote)
 
 
         #write the list to the CSV file

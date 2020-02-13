@@ -70,7 +70,21 @@ def xmltocsv(xlmstring,outputfilepath, filename,sourceitemid):
     station_data_head.append('CarparkCCTV')
     station_data_head.append('TOCRef')
     station_data_head.append('AccessibleCarparkEquipmentNote')
-
+    station_data_head.append('CarPark_EmailAddress')
+    station_data_head.append('CarParkCharges_Off-Peak')
+    station_data_head.append('CarParkCharges_PerHour')
+    station_data_head.append('CarParkCharges_Daily')
+    station_data_head.append('CarParkCharges_Weekly')
+    station_data_head.append('CarParkCharges_Monthly')  
+    station_data_head.append('CarParkCharges_ThreeMonthly')  
+    station_data_head.append('CarParkCharges_SixMonthly')    
+    station_data_head.append('CarParkCharges_Annual')
+    station_data_head.append('CarParkCharges_Saturday')
+    station_data_head.append('CarParkCharges_Sunday')  
+    station_data_head.append('CarParkCharges_Note')   
+      
+      #,[CarPark_Charges_Note]
+      #,[CarPark_Charges_Note_cdata]
 
     #populate the csv with the header
     csvwriter.writerow(station_data_head)
@@ -266,9 +280,65 @@ def xmltocsv(xlmstring,outputfilepath, filename,sourceitemid):
         except AttributeError:
             accessiblecarparkequipmentnote = None
 
+        try:
+            carparkemail = stn.Interchange.CarPark.EmailAddress.get_text()
+        except AttributeError:
+            carparkemail = None
 
+        try:
+            carparkchargesoffpeak = stn.CarPark.Charges.Off-peak.get_text()
+        except AttributeError:
+            carparkchargesoffpeak = None
 
+        try:
+            carparkchargesperhour = stn.CarPark.Charges.PerHour.get_text()
+        except AttributeError:
+            carparkchargesperhour = None
+        
+        try:
+            carparkchargesdaily = stn.CarPark.Charges.Daily.get_text()
+        except AttributeError:
+            carparkchargesdaily = None
+        
+        try:
+            carparkchargesweekly = stn.CarPark.Charges.Weekly.get_text()
+        except AttributeError:
+            carparkchargesweekly = None
 
+        try:
+            carparkchargesmonthly = stn.CarPark.Charges.Monthly.get_text()
+        except AttributeError:
+            carparkchangesmonthly = None
+
+        try:
+            carparkchangesthreemonthly = stn.CarkPark.Charges.ThreeMonthly.get_text()
+        except AttributeError:
+            carparkchargesthreemonthly = None
+        
+        try:
+            carparkchargessixmonthly = stn.CarPark.Charges.SixMonthly.get_text()
+        except AttributeError:
+            carparkchargessixmonthly = None
+        
+        try:
+            carparkchargesannual = stn.CarPark.Charges.Annual.get_text()
+        except AttributeError:
+            carparkchargesannual = None
+        
+        try:
+            carparkchargessaturday = stn.CarPark.Charges.Saturday.get_text()
+        except AttributeError:
+            carparkchargessaturday = None
+        
+        try:
+            carparkchargessunday = stn.CarPark.Charges.Sunday.get_text()
+        except AttributeError:
+            carparkchargessunday = None
+
+        try:
+            carparkchargesnote = stn.CarPark.Charges.Note.get_text()
+        except AttributeError:
+            carparkchargesnote = None
 
 
         #format date
@@ -291,6 +361,8 @@ def xmltocsv(xlmstring,outputfilepath, filename,sourceitemid):
         if accessibletaxinotes:
             accessibletaxinotes = strip_tags(accessibletaxinotes)
         
+        if carparkchargesnote:
+            carparkchargesnote = strip_tags(carparkchargesnote)
         
 
 
@@ -333,6 +405,18 @@ def xmltocsv(xlmstring,outputfilepath, filename,sourceitemid):
         station_data.append(carparkcctv)
         station_data.append(tocref)
         station_data.append(accessiblecarparkequipmentnote)
+        station_data.append(carparkemail)
+        station_data.append(carparkchargesoffpeak)
+        station_data.append(carparkchargesperhour)
+        station_data.append(carparkchargesdaily)
+        station_data.append(carparkchargesweekly)
+        station_data.append(carparkchargesmonthly)
+        station_data.append(carparkchargesthreemonthly)
+        station_data.append(carparkchargessixmonthly)
+        station_data.append(carparkchargesannual)
+        station_data.append(carparkchargessaturday)
+        station_data.append(carparkchargessunday)
+        station_data.append(carparknote)
 
 
         #write the list to the CSV file

@@ -70,6 +70,11 @@ def xmltocsv(xlmstring,outputfilepath, filename,sourceitemid):
     station_data_head.append('CarparkCCTV')
     station_data_head.append('TOCRef')
     station_data_head.append('AccessibleCarparkEquipmentNote')
+    station_data_head.append('Helpline_number')
+    station_data_head.append('Helpline_open_Monday_to_Sunday')
+    station_data_head.append('Helpline_open')
+    station_data_head.append('Helpline_closed')
+    station_data_head.append('Helpline_notes')
     station_data_head.append('CarPark_EmailAddress')
     station_data_head.append('CarParkCharges_Off-Peak')
     station_data_head.append('CarParkCharges_PerHour')
@@ -81,9 +86,11 @@ def xmltocsv(xlmstring,outputfilepath, filename,sourceitemid):
     station_data_head.append('CarParkCharges_Annual')
     station_data_head.append('CarParkCharges_Saturday')
     station_data_head.append('CarParkCharges_Sunday')  
-    station_data_head.append('CarParkCharges_Note')   
-      
-      #,[CarPark_Charges_Note]
+    station_data_head.append('CarParkCharges_Note') 
+    #requested by Chris Casanovas
+
+    
+     
       #,[CarPark_Charges_Note_cdata]
 
     #populate the csv with the header
@@ -279,14 +286,38 @@ def xmltocsv(xlmstring,outputfilepath, filename,sourceitemid):
             accessiblecarparkequipmentnote = stn.Interchange.CarPark.AccessibleCarParkEquipmentNote.get_text()
         except AttributeError:
             accessiblecarparkequipmentnote = None
+        
+        try:
+            helpline_number = stn.Accessibility.Helpline.ContactDetails.Annotation.Note.get_text()
+        except AttributeError:
+            helpline_number = None
+        
+        try:
+            helpline_days_open = stn.Accessibility.Helpline.Open.DayAndTimeAvailability.DayTypes.MondayToSunday.get_text()
+        except AttributeError:
+            helpline_days_open = None
+        
+        try:
+            helpline_open = stn.Accessibility.Helpline.Open.DayAndTimeAvailability.OpeningHours.StartTime.get_text()
+        except AttributeError:
+            helpline_open = None
 
+        try:
+            helpline_closed = stn.Accessibility.Helpline.Open.DayAndTimeAvailability.OpeningHours.EndTime.get_text()
+        except AttributeError:
+            helpline_closed = None
+        
+        try:
+            helpline_notes = stn.Accessibility.Helpline.Annotation.Note.get_text()
+        except AttributeError:
+            helpline_notes = None
         try:
             carparkemail = stn.Interchange.CarPark.EmailAddress.get_text()
         except AttributeError:
             carparkemail = None
 
         try:
-            carparkchargesoffpeak = stn.CarPark.Charges.Off-peak.get_text()
+            carparkchargesoffpeak = stn.CarPark.Charges.Offpeak.get_text()
         except AttributeError:
             carparkchargesoffpeak = None
 
@@ -308,7 +339,7 @@ def xmltocsv(xlmstring,outputfilepath, filename,sourceitemid):
         try:
             carparkchargesmonthly = stn.CarPark.Charges.Monthly.get_text()
         except AttributeError:
-            carparkchangesmonthly = None
+            carparkchargesmonthly = None
 
         try:
             carparkchangesthreemonthly = stn.CarkPark.Charges.ThreeMonthly.get_text()
@@ -341,9 +372,16 @@ def xmltocsv(xlmstring,outputfilepath, filename,sourceitemid):
             carparkchargesnote = None
 
 
+
         #format date
         changeddate = changeddate.replace('T00:00:00.000Z','')
         changeddate = changeddate.replace('T00:00:00.000+01:00','')
+        if helpline_open:
+            helpline_open = helpline_open.replace(':00.000','')
+
+        if helpline_closed:
+            helpline_closed = helpline_closed.replace(':00.000','')
+
 
         #strip html tags
         if neareststation1:
@@ -364,6 +402,11 @@ def xmltocsv(xlmstring,outputfilepath, filename,sourceitemid):
         if carparkchargesnote:
             carparkchargesnote = strip_tags(carparkchargesnote)
         
+        if helpline_number:
+            helpline_number = strip_tags(helpline_number)
+
+        if helpline_notes:
+            helpline_notes = strip_tags(helpline_notes)
 
 
         #add the elements from the dictionaries to the list
@@ -405,6 +448,11 @@ def xmltocsv(xlmstring,outputfilepath, filename,sourceitemid):
         station_data.append(carparkcctv)
         station_data.append(tocref)
         station_data.append(accessiblecarparkequipmentnote)
+        station_data.append(helpline_number)
+        station_data.append(helpline_days_open)
+        station_data.append(helpline_open)
+        station_data.append(helpline_closed)
+        station_data.append(helpline_notes)
         station_data.append(carparkemail)
         station_data.append(carparkchargesoffpeak)
         station_data.append(carparkchargesperhour)
@@ -416,7 +464,9 @@ def xmltocsv(xlmstring,outputfilepath, filename,sourceitemid):
         station_data.append(carparkchargesannual)
         station_data.append(carparkchargessaturday)
         station_data.append(carparkchargessunday)
-        station_data.append(carparknote)
+        station_data.append(carparkchargesnote)
+
+
 
 
         #write the list to the CSV file
@@ -428,10 +478,10 @@ def xmltocsv(xlmstring,outputfilepath, filename,sourceitemid):
 
         #close the csv file
     datafile.close()
-    print(type(datafile))
-    return datafile
+    #print(type(datafile))
+    
     print("\n All records written to file.  Finished.")
-
+    return datafile
 
 
 class MLStripper(HTMLParser):

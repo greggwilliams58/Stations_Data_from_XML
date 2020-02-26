@@ -1,6 +1,8 @@
 from getxml import getnrexml
 from xmltocsv import xmltocsv
 from csvtodf import csvtodf
+from bs4 import BeautifulSoup
+
 
 def main():
 
@@ -13,10 +15,14 @@ def main():
     userid = 'gregory.williams@orr.gov.uk'
     userpassword = 'ORRis1derful!'
 
+    #use getnrexml to get xml file directly from NRE
     print("starting to get the NRE XML Data from NRE...\n")
     xml = getnrexml(userid,userpassword)
     
-    xmltocsv(xml,filepath,filename ,99)
+    #use getrawxml to open a historical raw xml file
+    #xml = getrawxml("C:\\Users\\gwilliams\\Documents\\GitHub\\NRE_XML_Parsing\\NRE_XML_Parsing\\NRE_XML_Parsing\\raw_xml_data\\","NRE_Station_Dataset_2019_raw.xml")
+    
+    xmltocsv(xml,filepath,filename ,1)
 
     #convert to pandas dataframe
     df = csvtodf(filepath,filename)
@@ -26,6 +32,24 @@ def main():
 
     #placeholder for importing into datawarehouse later
     #senddatatodw(df)
+
+
+    def getrawxml(fp,fn):
+        """
+        This is to read in a previously extracted XML file and to pass it onto the generic process.
+
+        Parameters
+        fp:     A string representing the file path to the raw file
+        fn:     A string representing the file name of the raw file
+
+        Returns:
+        xml_file:   A string containing the raw xml file.
+        """
+        print("starting to get the NRE XML Data from historical file")
+        infile = open(fp,fn,"r",encoding="utf-8")
+        xml_file = infile.read()
+        return xml_file
+
 
 if __name__ == '__main__':
     main()

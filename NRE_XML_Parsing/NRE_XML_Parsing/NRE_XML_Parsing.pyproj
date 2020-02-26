@@ -40,6 +40,9 @@
   <ItemGroup>
     <Content Include="xmlsample.xml" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="raw_xml_data\" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
        Visual Studio and specify your pre- and post-build commands in

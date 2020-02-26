@@ -139,7 +139,8 @@ def xmltocsv(xlmstring,outputfilepath, filename,sourceitemid):
         #loop through children elements with same names and append to a list
         add_list = []
         for child in stn.Address.PostalAddress.A_5LineAddress.stripped_strings:
-            add_list.append(child)    
+            add_list.append(child)  
+            
         add1 = add_list[0]
         add2 = add_list[1]
         add3 = add_list[2]

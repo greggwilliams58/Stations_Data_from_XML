@@ -11,6 +11,7 @@
     <OutputPath>.</OutputPath>
     <Name>NRE_XML_Parsing</Name>
     <RootNamespace>NRE_XML_Parsing</RootNamespace>
+    <InterpreterId>MSBuild|env for NRE_XML Parsing|$(MSBuildProjectFullPath)</InterpreterId>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -42,6 +43,20 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="raw_xml_data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Interpreter Include="env for NRE_XML Parsing\">
+      <Id>env for NRE_XML Parsing</Id>
+      <Version>3.6</Version>
+      <Description>env for NRE_XML Parsing (Python 3.6 (64-bit))</Description>
+      <InterpreterPath>Scripts\python.exe</InterpreterPath>
+      <WindowsInterpreterPath>Scripts\pythonw.exe</WindowsInterpreterPath>
+      <PathEnvironmentVariable>PYTHONPATH</PathEnvironmentVariable>
+      <Architecture>X64</Architecture>
+    </Interpreter>
+  </ItemGroup>
+  <ItemGroup>
+    <InterpreterReference Include="Global|PythonCore|3.6" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in

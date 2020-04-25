@@ -6,14 +6,14 @@ from bs4 import BeautifulSoup
 
 def main():
 
-    filepath = 'C:\\Users\\gwilliams\\Desktop\\Python Experiments\\work projects\\NRE_XML_Parsing\\'
+    filepath = 'C:\\Users\\Greg\\Documents\\GitHub\\Stations_Data_from_XML\\NRE_XML_Parsing\\NRE_XML_Parsing\\output\\'
     filename = 'NRE_Data_Extracted.csv'
     #These usernames and password require an account to be created for the National Rail DataPortal
     #Such an account can be created at https://opendata.nationalrail.co.uk/registration
     #Note that accounts are deleted by NR after 6 months of inactivity.
 
-    userid = 'gregory.williams@orr.gov.uk'
-    userpassword = 'ORRis1derful!'
+    userid = 'greggwilliams58@gmail.com'
+    userpassword = 'Sardonic1789!'
 
     #use getnrexml to get xml file directly from NRE
     print("starting to get the NRE XML Data from NRE...\n")

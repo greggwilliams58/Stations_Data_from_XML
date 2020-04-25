@@ -42,6 +42,7 @@
     <Content Include="xmlsample.xml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="output\" />
     <Folder Include="raw_xml_data\" />
   </ItemGroup>
   <ItemGroup>

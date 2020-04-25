@@ -11,7 +11,7 @@
     <OutputPath>.</OutputPath>
     <Name>NRE_XML_Parsing</Name>
     <RootNamespace>NRE_XML_Parsing</RootNamespace>
-    <InterpreterId>MSBuild|env for NRE_XML Parsing|$(MSBuildProjectFullPath)</InterpreterId>
+    <InterpreterId>MSBuild|env_for_NRE_XML_Parsing_2|$(MSBuildProjectFullPath)</InterpreterId>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -49,6 +49,15 @@
       <Id>env for NRE_XML Parsing</Id>
       <Version>3.6</Version>
       <Description>env for NRE_XML Parsing (Python 3.6 (64-bit))</Description>
+      <InterpreterPath>Scripts\python.exe</InterpreterPath>
+      <WindowsInterpreterPath>Scripts\pythonw.exe</WindowsInterpreterPath>
+      <PathEnvironmentVariable>PYTHONPATH</PathEnvironmentVariable>
+      <Architecture>X64</Architecture>
+    </Interpreter>
+    <Interpreter Include="env_for_NRE_XML_Parsing_2\">
+      <Id>env_for_NRE_XML_Parsing_2</Id>
+      <Version>3.7</Version>
+      <Description>env_for_NRE_XML_Parsing_2 (Python 3.7 (64-bit))</Description>
       <InterpreterPath>Scripts\python.exe</InterpreterPath>
       <WindowsInterpreterPath>Scripts\pythonw.exe</WindowsInterpreterPath>
       <PathEnvironmentVariable>PYTHONPATH</PathEnvironmentVariable>

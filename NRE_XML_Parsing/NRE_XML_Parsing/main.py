@@ -12,8 +12,8 @@ def main():
     #Such an account can be created at https://opendata.nationalrail.co.uk/registration
     #Note that accounts are deleted by NR after 6 months of inactivity.
 
-    userid = 'greggwilliams58@gmail.com'
-    userpassword = 'Sardonic1789!'
+    userid = 'gregory.williams@orr.gov.uk'
+    userpassword = 'ORRis1derful!'
 
     #use getnrexml to get xml file directly from NRE
     print("starting to get the NRE XML Data from NRE...\n")

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite errors="0" failures="1" hostname="LENOVO" name="pytest" skipped="0" tests="1" time="1.860" timestamp="2020-04-26T14:41:29.033915"><testcase classname="test_main" file="test_main.py" line="15" name="test_get_rawxml_wrong_file_name" time="0.003"><failure message="FileNotFoundError: [Errno 2] No such file or directory: &apos;nonsenseNRE_Station_Dataset_2018_raw.xml&apos;">def test_get_rawxml_wrong_file_name():
+        with pytest.raises(EOFError):
+&gt;           getrawxml(&quot;nonsense&quot;,&quot;NRE_Station_Dataset_2018_raw.xml&quot;)
+
+test_main.py:18: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+fp = &apos;nonsense&apos;, fn = &apos;NRE_Station_Dataset_2018_raw.xml&apos;
+
+    def getrawxml(fp,fn):
+        &quot;&quot;&quot;
+        This is to read in a previously extracted XML file and to pass it onto the generic process.
+    
+        Parameters
+        fp:     A string representing the file path to the raw file
+        fn:     A string representing the file name of the raw file
+    
+        Returns:
+        xml_file:   A string containing the raw xml file.
+        &quot;&quot;&quot;
+        print(&quot;starting to get the NRE XML Data from historical file&quot;)
+&gt;       infile = open(fp+fn,&quot;r&quot;,encoding=&quot;utf-8&quot;)
+E       FileNotFoundError: [Errno 2] No such file or directory: &apos;nonsenseNRE_Station_Dataset_2018_raw.xml&apos;
+
+main.py:50: FileNotFoundError</failure></testcase></testsuite></testsuites>

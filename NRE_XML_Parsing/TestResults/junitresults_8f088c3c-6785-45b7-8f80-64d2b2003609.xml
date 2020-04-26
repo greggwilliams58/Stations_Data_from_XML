@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite errors="0" failures="0" hostname="LENOVO" name="pytest" skipped="0" tests="1" time="0.958" timestamp="2020-04-26T13:18:57.703031"><testcase classname="test_main" file="test_main.py" line="10" name="test_baby_test" time="0.001"></testcase></testsuite></testsuites>

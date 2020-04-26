@@ -20,8 +20,9 @@ def main():
     xml = getnrexml(userid,userpassword)
     
     #use getrawxml to open a historical raw xml file
-    #xml = getrawxml("C:\\Users\\gwilliams\\Documents\\GitHub\\NRE_XML_Parsing\\NRE_XML_Parsing\\NRE_XML_Parsing\\raw_xml_data\\","NRE_Station_Dataset_2019_raw.xml")
-    
+    #print("Getting historical data")
+    #xml = getrawxml("C:\\Users\\Greg\\Documents\\GitHub\\Stations_Data_from_XML\\NRE_XML_Parsing\\NRE_XML_Parsing\\raw_xml_data\\","NRE_Station_Dataset_2018_raw.xml")
+                     
     xmltocsv(xml,filepath,filename ,1)
 
     #convert to pandas dataframe
@@ -34,22 +35,25 @@ def main():
     #senddatatodw(df)
 
 
-    def getrawxml(fp,fn):
-        """
-        This is to read in a previously extracted XML file and to pass it onto the generic process.
+def getrawxml(fp,fn):
+    """
+    This is to read in a previously extracted XML file and to pass it onto the generic process.
 
-        Parameters
-        fp:     A string representing the file path to the raw file
-        fn:     A string representing the file name of the raw file
+    Parameters
+    fp:     A string representing the file path to the raw file
+    fn:     A string representing the file name of the raw file
 
-        Returns:
-        xml_file:   A string containing the raw xml file.
-        """
-        print("starting to get the NRE XML Data from historical file")
-        infile = open(fp,fn,"r",encoding="utf-8")
-        xml_file = infile.read()
-        return xml_file
+    Returns:
+    xml_file:   A string containing the raw xml file.
+    """
+    print("starting to get the NRE XML Data from historical file")
+    infile = open(fp+fn,"r",encoding="utf-8")
+    xml_file = infile.read()
+    return xml_file
 
+n = 3
+def baby_test(x):
+    return x+1
 
 if __name__ == '__main__':
     main()

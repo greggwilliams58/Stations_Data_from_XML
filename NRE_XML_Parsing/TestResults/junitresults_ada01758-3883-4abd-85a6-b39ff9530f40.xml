@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite errors="0" failures="1" hostname="LENOVO" name="pytest" skipped="0" tests="1" time="1.345" timestamp="2020-04-26T16:31:15.893314"><testcase classname="test_main" file="test_main.py" line="7" name="test_requesttoken" time="0.259"><failure message="AttributeError: &apos;dict&apos; object has no attribute &apos;status_code&apos;">def test_requesttoken():
+        response = requesttoken(&apos;greggwilliams58@gmail.com&apos;,&apos;Sardonic1789!&apos;)
+        expected = &quot;{&apos;username&apos;: &apos;greggwilliams58@gmail.com&apos;, &apos;roles&apos;: {&apos;ROLE_STANDARD&apos;: True, &apos;ROLE_KB_API&apos;: True}, &apos;token&apos;: &apos;greggwilliams58@gmail.com:1587918185000:bHweEQtGv26ykHytBJpJbG8JtH0pCzG0ZboIWqEzS7E=&apos;}&quot;
+&gt;       assert response.status_code == 200
+E       AttributeError: &apos;dict&apos; object has no attribute &apos;status_code&apos;
+
+test_main.py:11: AttributeError</failure></testcase></testsuite></testsuites>

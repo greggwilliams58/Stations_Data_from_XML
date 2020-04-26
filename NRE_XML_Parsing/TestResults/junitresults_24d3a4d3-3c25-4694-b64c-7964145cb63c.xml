@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite errors="0" failures="1" hostname="LENOVO" name="pytest" skipped="0" tests="1" time="1.601" timestamp="2020-04-26T14:44:34.545494"><testcase classname="test_main" file="test_main.py" line="15" name="test_get_rawxml_wrong_file_name" time="0.181"><failure message="Failed: DID NOT RAISE &lt;class &apos;FileNotFoundError&apos;&gt;">def test_get_rawxml_wrong_file_name():
+        with pytest.raises(FileNotFoundError):
+&gt;           getrawxml(&quot;C:\\Users\\Greg\\Documents\\GitHub\\Stations_Data_from_XML\\NRE_XML_Parsing\\NRE_XML_Parsing\\raw_xml_data\\&quot;,&quot;NRE_Station_Dataset_2018_raw.xml&quot;)
+E           Failed: DID NOT RAISE &lt;class &apos;FileNotFoundError&apos;&gt;
+
+test_main.py:18: Failed</failure></testcase></testsuite></testsuites>

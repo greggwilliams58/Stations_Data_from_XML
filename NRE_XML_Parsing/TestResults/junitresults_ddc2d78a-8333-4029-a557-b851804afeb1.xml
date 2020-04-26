@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite errors="0" failures="1" hostname="LENOVO" name="pytest" skipped="0" tests="1" time="0.070" timestamp="2020-04-26T12:38:41.879671"><testcase classname="test_1" file="test_1.py" line="2" name="test_login" time="0.001"><failure message="NameError: name &apos;filepath&apos; is not defined">def test_login():
+&gt;       assert filepath == &apos;greggwilliams58@gmail.com&apos;
+E       NameError: name &apos;filepath&apos; is not defined
+
+test_1.py:4: NameError</failure></testcase></testsuite></testsuites>

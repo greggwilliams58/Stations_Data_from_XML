@@ -19,6 +19,7 @@ def getnrexml(userid,password):
 
     print("extracting the XML data now \n")
     xmldata = extractNREXML(userid,password,APItoken)
+    
     return xmldata
 
 
@@ -38,7 +39,7 @@ def requesttoken(email,password):
     payload = 'username='+email+'&password='+password
     headers = {'Content-Type': 'application/x-www-form-urlencoded'}
     response = requests.request('POST', url, headers = headers, data = payload, allow_redirects=False, timeout=3600)
-
+    
     return response.json()
 
 

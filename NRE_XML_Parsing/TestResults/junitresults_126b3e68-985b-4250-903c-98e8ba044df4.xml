@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite errors="0" failures="2" hostname="LENOVO" name="pytest" skipped="0" tests="2" time="1.878" timestamp="2020-04-26T13:09:28.060776"><testcase classname="test_2" file="test_2.py" line="3" name="test_getrawxml" time="0.003"><failure message="TypeError: an integer is required (got type str)">def test_getrawxml():
+        answer = getrawxml(&quot;C:\\Users\\Greg\\Documents\\GitHub\\Stations_Data_from_XML\\NRE_XML_Parsing\\NRE_XML_Parsing\\raw_xml_data\\&quot;
+&gt;                          ,&quot;NRE_Station_Dataset_2018_raw.xml&quot;)
+
+test_2.py:6: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+fp = &apos;C:\\Users\\Greg\\Documents\\GitHub\\Stations_Data_from_XML\\NRE_XML_Parsing\\NRE_XML_Parsing\\raw_xml_data\\&apos;
+fn = &apos;NRE_Station_Dataset_2018_raw.xml&apos;
+
+    def getrawxml(fp,fn):
+        &quot;&quot;&quot;
+        This is to read in a previously extracted XML file and to pass it onto the generic process.
+    
+        Parameters
+        fp:     A string representing the file path to the raw file
+        fn:     A string representing the file name of the raw file
+    
+        Returns:
+        xml_file:   A string containing the raw xml file.
+        &quot;&quot;&quot;
+        print(&quot;starting to get the NRE XML Data from historical file&quot;)
+&gt;       infile = open(fp,fn,&quot;r&quot;,encoding=&quot;utf-8&quot;)
+E       TypeError: an integer is required (got type str)
+
+main.py:49: TypeError</failure></testcase><testcase classname="test_main" file="test_main.py" line="3" name="test_getrawxml" time="0.003"><failure message="TypeError: an integer is required (got type str)">def test_getrawxml():
+        answer = getrawxml(&quot;C:\\Users\\Greg\\Documents\\GitHub\\Stations_Data_from_XML\\NRE_XML_Parsing\\NRE_XML_Parsing\\raw_xml_data\\&quot;
+&gt;                          ,&quot;NRE_Station_Dataset_2018_raw.xml&quot;)
+
+test_main.py:6: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+fp = &apos;C:\\Users\\Greg\\Documents\\GitHub\\Stations_Data_from_XML\\NRE_XML_Parsing\\NRE_XML_Parsing\\raw_xml_data\\&apos;
+fn = &apos;NRE_Station_Dataset_2018_raw.xml&apos;
+
+    def getrawxml(fp,fn):
+        &quot;&quot;&quot;
+        This is to read in a previously extracted XML file and to pass it onto the generic process.
+    
+        Parameters
+        fp:     A string representing the file path to the raw file
+        fn:     A string representing the file name of the raw file
+    
+        Returns:
+        xml_file:   A string containing the raw xml file.
+        &quot;&quot;&quot;
+        print(&quot;starting to get the NRE XML Data from historical file&quot;)
+&gt;       infile = open(fp,fn,&quot;r&quot;,encoding=&quot;utf-8&quot;)
+E       TypeError: an integer is required (got type str)
+
+main.py:49: TypeError</failure></testcase></testsuite></testsuites>
